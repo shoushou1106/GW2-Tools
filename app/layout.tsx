@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_SC, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
 import { cn } from "@/lib/utils"
+import { ThemeProvider } from "@/components/theme-provider"
  
 const fontSansCn = Noto_Sans_SC({
   subsets: ["latin"],
@@ -28,15 +28,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <>
+    <html lang="zh-CN" >
       <head />
-      <body
-        className={cn(
+      <body className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSansEn.variable, fontSansCn.variable, fontSansMono.variable
         )}
-      >
+        >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
+  </>
   );
 }
