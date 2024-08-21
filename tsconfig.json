@@ -22,10 +22,7 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true,
-    "types": [
-        "@cloudflare/workers-types/2024-08-15"
-    ]
+    "strictNullChecks": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
