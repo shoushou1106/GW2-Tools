@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: {
@@ -15,9 +16,9 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: "/gw2-zhCN/favicon.ico",
+    shortcut: "/gw2-zhCN/favicon.ico",
+    apple: "/gw2-zhCN/apple-touch-icon.png",
   },
 };
 
@@ -43,6 +44,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
             {/*<TailwindIndicator />*/}
           </ThemeProvider>
+          <Toaster />
+          <TailwindIndicator />
         </body>
       </html>
     </>

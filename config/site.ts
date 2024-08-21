@@ -1,18 +1,31 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "GW2 简中 Mod",
+  name: "GW2 简体中文 Mod",
   description:
-    "花园战争 2 简体中文 Mod 社区版",
+    "花园战争 2 简体中文 Mod",
   mainNav: [
     {
-      title: "Home",
+      title: "主页",
       href: "/",
+    },
+    {
+      title: "下载",
+      href: "/download",
+    },
+    {
+      title: "参与制作",
+      href: "/contribute",
+    },
+    {
+      title: "关于",
+      href: "/about",
     },
   ],
   links: {
-    nexusmods: "https://www.nexusmods.com/plantsvszombiesgardenwarfare2/mods/379/",
+    nexusmods: "https://www.nexusmods.com/plantsvszombiesgardenwarfare2/mods/379",
     paratranz: "https://paratranz.cn/projects/9739",
-    download: "/download",
+    github: "https://github.com/shoushou1106/gw2-zhCN",
+    bilibili: "https://space.bilibili.com/436542054",
   },
 }
