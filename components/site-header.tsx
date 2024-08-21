@@ -70,7 +70,7 @@ export function SiteHeader() {
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Image src="/gw2-zhCN/static/images/contract/qq/社区版1群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
+                                <Image src="/static/images/contract/qq/社区版1群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -95,7 +95,7 @@ export function SiteHeader() {
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Image src="/gw2-zhCN/static/images/contract/qq/社区版2群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
+                                <Image src="/static/images/contract/qq/社区版2群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -120,7 +120,7 @@ export function SiteHeader() {
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Image src="/gw2-zhCN/static/images/contract/qq/社区版3群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
+                                <Image src="/static/images/contract/qq/社区版3群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>
