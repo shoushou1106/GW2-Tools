@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 
-import { cn } from "@/lib/utils"
+import { Skeleton } from "@/components/ui/skeleton"
 import { toast } from "sonner"
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
@@ -71,11 +71,12 @@ export function SiteHeader() {
                               复制群号
                             </Button>
                             <Link
-                              href="/static/images/contract/qq/社区版1群_二维码.jpg"
+                              href="/static/contract/qq/社区版1群_二维码.jpg"
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Image src="/static/images/contract/qq/社区版1群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
+                                <Skeleton className="rounded-lg object-cover h-full w-full" />
+                                <Image src="/static/contract/qq/社区版1群_二维码.jpg" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -96,11 +97,12 @@ export function SiteHeader() {
                               复制群号
                             </Button>
                             <Link
-                              href="/static/images/contract/qq/社区版2群_二维码.jpg"
+                              href="/static/contract/qq/社区版2群_二维码.jpg"
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Image src="/static/images/contract/qq/社区版2群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
+                                <Skeleton className="rounded-lg object-cover h-full w-full" />
+                                <Image src="/static/contract/qq/社区版2群_二维码.jpg" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -121,11 +123,12 @@ export function SiteHeader() {
                               复制群号
                             </Button>
                             <Link
-                              href="/static/images/contract/qq/社区版3群_二维码.jpg"
+                              href="/static/contract/qq/社区版3群_二维码.jpg"
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Image src="/static/images/contract/qq/社区版3群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
+                                <Skeleton className="rounded-lg object-cover h-full w-full" />
+                                <Image src="/static/contract/qq/社区版3群_二维码.jpg" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -147,23 +150,8 @@ export function SiteHeader() {
                   variant: "ghost",
                 })}
               >
-                <Icons.nexusmods className="h-5 w-5 fill-current"/>
+                <Icons.nexusmods className="h-5 w-5"/>
                 <span className="sr-only">Nexus mods</span>
-              </div>
-            </Link>
-            <Link
-              href={siteConfig.links.paratranz}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={buttonVariants({
-                  size: "icon",
-                  variant: "ghost",
-                })}
-              >
-                <Icons.paratranz className="h-7 w-8 fill-current"/>
-                <span className="sr-only">ParaTranz</span>
               </div>
             </Link>
             <Link
