@@ -1,13 +1,15 @@
-'use client';
+'use client'
 
 import Link from "next/link"
 import Image from "next/image"
 
+import { cn } from "@/lib/utils"
 import { toast } from "sonner"
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
+import { MobileNav } from "@/components/mobile-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
@@ -26,11 +28,14 @@ import {
 
 export function SiteHeader() {
   return (
-    <header className="bg-background sticky top-0 z-40 w-full border-b">
-      <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
+    <header className="sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 max-w-screen-2xl items-center">
         <MainNav items={siteConfig.mainNav} />
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-1">
+        <MobileNav items={siteConfig.mainNav} />
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+          <div className="w-full flex-1 md:w-auto md:flex-none">
+          </div>
+          <nav className="flex items-center">
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -70,7 +75,7 @@ export function SiteHeader() {
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Image src="/gw2-zhCN/static/images/contract/qq/社区版1群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
+                                <Image src="/static/images/contract/qq/社区版1群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -95,7 +100,7 @@ export function SiteHeader() {
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Image src="/gw2-zhCN/static/images/contract/qq/社区版2群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
+                                <Image src="/static/images/contract/qq/社区版2群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -120,7 +125,7 @@ export function SiteHeader() {
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Image src="/gw2-zhCN/static/images/contract/qq/社区版3群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
+                                <Image src="/static/images/contract/qq/社区版3群_二维码.jpg" fill alt="QQ群二维码" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -131,21 +136,6 @@ export function SiteHeader() {
                 </div>
               </PopoverContent>
             </Popover>
-            <Link
-              href={siteConfig.links.bilibili}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div
-                className={buttonVariants({
-                  size: "icon",
-                  variant: "ghost",
-                })}
-              >
-                <Icons.bilibili className="h-6 w-6 fill-current"/>
-                <span className="sr-only">Nexus mods</span>
-              </div>
-            </Link>
             <Link
               href={siteConfig.links.nexusmods}
               target="_blank"

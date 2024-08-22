@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site"
 import { fontSans, fontSansCn, fontMono } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
@@ -16,9 +17,9 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/gw2-zhCN/favicon.ico",
-    shortcut: "/gw2-zhCN/favicon.ico",
-    apple: "/gw2-zhCN/apple-touch-icon.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -37,15 +38,17 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.variable, fontSansCn.variable, fontMono.variable
           )}
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <div vaul-drawer-wrapper="">
+              <div className="relative flex min-h-screen flex-col bg-background">
+                <SiteHeader />
+                {children}
+                <SiteFooter />
+              </div>
             </div>
-            {/*<TailwindIndicator />*/}
+            <Toaster />
+            <TailwindIndicator />
           </ThemeProvider>
-          <Toaster />
-          <TailwindIndicator />
         </body>
       </html>
     </>

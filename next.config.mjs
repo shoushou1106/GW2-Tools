@@ -20,9 +20,9 @@ const nextConfig = {
    *
    * @see https://nextjs.org/docs/pages/api-reference/components/image#unoptimized
    */
-  images: {
-    unoptimized: true,
-  },
+  //images: {
+  //  unoptimized: true,
+  //},
   reactStrictMode: true
 };
 
