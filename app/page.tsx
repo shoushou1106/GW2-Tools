@@ -24,7 +24,7 @@ export default function Home() {
           href="/download"
           className={buttonVariants()}
         >
-          Download
+          下载
         </Link>
       </div>
     </section>

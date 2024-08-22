@@ -3,6 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import Image from "next/image"
 
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
@@ -19,7 +20,7 @@ export function MainNav({ items }: MainNavProps) {
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-4 flex items-center space-x-2 lg:mr-6">
-        <Icons.github className="h-6 w-6" />
+        <Image src="/favicon.png.webp" alt="logo" width={3000} height={3000} className="h-6 w-6" />
         <span className="hidden font-bold lg:inline-block">
           {siteConfig.name}
         </span>

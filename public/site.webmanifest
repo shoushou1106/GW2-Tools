@@ -8,9 +8,19 @@
         "type": "image/png"
       },
       {
+        "src": "/favicon-192x192.png.webp",
+        "sizes": "192x192",
+        "type": "image/webp"
+      },
+      {
         "src": "/favicon-512x512.png",
         "sizes": "512x512",
         "type": "image/png"
+      },
+      {
+        "src": "/favicon-512x512.png.webp",
+        "sizes": "512x512",
+        "type": "image/webp"
       },
       {
         "src": "/favicon-1000x1000.png",
