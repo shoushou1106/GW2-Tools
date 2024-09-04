@@ -2,12 +2,9 @@ import {
   LucideProps,
   Moon,
   SunMedium,
-  Twitter,
   type Icon as LucideIcon,
 } from "lucide-react"
 import Image from "next/image"
-
-export type Icon = LucideIcon
 
 export const Icons = {
   sun: SunMedium,
