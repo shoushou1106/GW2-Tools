@@ -121,11 +121,11 @@ export const metadata: Metadata = {
     },
   ],
   icons: {
-    icon: "/favicon-1000x1000.png.webp",
-    shortcut: "/favicon-1000x1000.png.webp",
-    apple: "/apple-touch-icon.png",
+    icon: "/zhcn/favicon-1000x1000.png.webp",
+    shortcut: "/zhcn/favicon-1000x1000.png.webp",
+    apple: "/zhcn/apple-touch-icon.png",
   },
-  metadataBase: new URL("https://gw2-zhcn.shoushou1106.cloudns.ch/"),
+  metadataBase: new URL("https://gw2.shoushou1106.org/zhcn"),
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
@@ -136,7 +136,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="zh-CN" >
+      <html lang="zh" >
         <head />
         <body
           className={cn(

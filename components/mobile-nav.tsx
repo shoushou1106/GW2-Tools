@@ -66,7 +66,7 @@ export function MobileNav({ items }: MainNavProps) {
           className="flex items-center"
           onOpenChange={setOpen}
         >
-          <Image src="/favicon.png.webp" alt="logo" width={3000} height={3000} className="mr-2 h-6 w-6" />
+          <Image src="/zhcn/favicon.png.webp" alt="logo" width={3000} height={3000} className="mr-2 h-6 w-6" />
           <span className="font-bold">{siteConfig.name}</span>
         </MobileLink>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">

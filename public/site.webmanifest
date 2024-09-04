@@ -3,37 +3,37 @@
     "name": "花园战争2 简体中文 Mod",
     "icons": [
       {
-        "src": "/favicon-192x192.png",
+        "src": "/zhcn/favicon-192x192.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "/favicon-192x192.png.webp",
+        "src": "/zhcn/favicon-192x192.png.webp",
         "sizes": "192x192",
         "type": "image/webp"
       },
       {
-        "src": "/favicon-512x512.png",
+        "src": "/zhcn/favicon-512x512.png",
         "sizes": "512x512",
         "type": "image/png"
       },
       {
-        "src": "/favicon-512x512.png.webp",
+        "src": "/zhcn/favicon-512x512.png.webp",
         "sizes": "512x512",
         "type": "image/webp"
       },
       {
-        "src": "/favicon-1000x1000.png",
+        "src": "/zhcn/favicon-1000x1000.png",
         "sizes": "1000x1000",
         "type": "image/png"
       },
       {
-        "src": "/favicon-1000x1000.png.webp",
+        "src": "/zhcn/favicon-1000x1000.png.webp",
         "sizes": "1000x1000",
         "type": "image/webp"
       },
       {
-        "src": "/favicon.png",
+        "src": "/zhcn/favicon.png",
         "sizes": "3000x3000",
         "type": "image/png"
       }

@@ -20,7 +20,7 @@ export function MainNav({ items }: MainNavProps) {
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-4 flex items-center space-x-2 lg:mr-6">
-        <Image src="/favicon.png.webp" alt="logo" width={3000} height={3000} className="h-6 w-6" />
+        <Image src="/zhcn/favicon.png.webp" alt="logo" width={3000} height={3000} className="h-6 w-6" />
         <span className="hidden font-bold lg:inline-block">
           {siteConfig.name}
         </span>

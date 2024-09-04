@@ -71,12 +71,12 @@ export function SiteHeader() {
                               复制群号
                             </Button>
                             <Link
-                              href="/static/contract/qq/社区版1群_二维码.jpg"
+                              href="/zhcn/static/contract/qq/社区版1群_二维码.jpg"
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
                                 <Skeleton className="rounded-lg object-cover h-full w-full" />
-                                <Image src="/static/contract/qq/社区版1群_二维码.jpg.webp" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
+                                <Image src="/zhcn/static/contract/qq/社区版1群_二维码.jpg.webp" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -97,12 +97,12 @@ export function SiteHeader() {
                               复制群号
                             </Button>
                             <Link
-                              href="/static/contract/qq/社区版2群_二维码.jpg"
+                              href="/zhcn/static/contract/qq/社区版2群_二维码.jpg"
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
                                 <Skeleton className="rounded-lg object-cover h-full w-full" />
-                                <Image src="/static/contract/qq/社区版2群_二维码.jpg.webp" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
+                                <Image src="/zhcn/static/contract/qq/社区版2群_二维码.jpg.webp" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -123,12 +123,12 @@ export function SiteHeader() {
                               复制群号
                             </Button>
                             <Link
-                              href="/static/contract/qq/社区版3群_二维码.jpg"
+                              href="/zhcn/static/contract/qq/社区版3群_二维码.jpg"
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
                                 <Skeleton className="rounded-lg object-cover h-full w-full" />
-                                <Image src="/static/contract/qq/社区版3群_二维码.jpg.webp" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
+                                <Image src="/zhcn/static/contract/qq/社区版3群_二维码.jpg.webp" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
                               </AspectRatio>
                             </Link>
                           </div>

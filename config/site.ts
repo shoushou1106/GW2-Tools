@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
   name: "GW2 简体中文 Mod",
-  url: "https://gw2-zhcn.shoushou1106.cloudns.ch",
+  url: "https://gw2.shoushou1106.org/zhcn",
   description:
     "花园战争 2 简体中文 Mod",
   mainNav: [
