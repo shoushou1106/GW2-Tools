@@ -15,6 +15,10 @@ export const siteConfig = {
       href: "/download",
     },
     {
+      title: "订阅",
+      href: "/subscribe",
+    },
+    {
       title: "参与制作",
       href: "/contribute",
     },
