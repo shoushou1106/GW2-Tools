@@ -41,7 +41,7 @@ const formSchema = z.object({
   turnstileResponse: z.string().min(1, "请完成人机验证"),
 })
 
-const resend = new Resend(process.env.RESEND_API_KEY_SEND);
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY_SEND);
 
 export default function Page() {
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -141,7 +141,7 @@ export default function Page() {
                 <FormItem>
                   <FormControl>
                     <Turnstile
-                      siteKey={process.env.PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ? process.env.PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY : '1x00000000000000000000AA'}
+                      siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ? process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY : '1x00000000000000000000AA'}
                       onSuccess={(token) => field.onChange(token)}
                       onError={() => field.onChange("")}
                       onExpire={() => field.onChange("")}
