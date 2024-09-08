@@ -1,4 +1,3 @@
 Website for GW2 Simplified Chinese project  
 
-Global: [gw2-zhcn.netlify.app](https://gw2-zhcn.netlify.app)
-China Mainland: [gw2-zhcn.shoushou1106.cloudns.ch](https://gw2-zhcn.shoushou1106.cloudns.ch)
+Global: [https://gw2.shoushou1106.org/zhcn](https://gw2.shoushou1106.org/zhcn)
