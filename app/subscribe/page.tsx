@@ -216,6 +216,7 @@ export default function Page() {
                   )}
                 />
                 <p className="text-sm text-muted-foreground">
+                  建议将 notify@shoushou1106.org 加入白名单，否则容易被收入垃圾邮件。<br/>
                   我使用 Resend
                   处理电子邮件。提交此表格即表示您同意您提供的个人数据将转交于
                   Resend 处理，并同意&nbsp;
@@ -243,6 +244,10 @@ export default function Page() {
                   成功订阅！感谢您的支持
                 </Label>
               </div>
+              
+              <Label className="text-lg font-medium">
+                建议将 notify@shoushou1106.org 加入白名单，否则容易被收入垃圾邮件。
+                </Label>
               <Button
                 className="w-min"
                 variant="outline"
@@ -314,7 +319,6 @@ export default function Page() {
                   )}
                 />
                 <p className="text-sm text-muted-foreground">
-                  建议将 notify@shoushou1106.org 加入白名单，否则容易被收入垃圾邮件。<br/>
                   我使用 Resend
                   处理电子邮件。提交此表格即表示您同意您提供的个人数据将转交于
                   Resend 处理，并同意&nbsp;
