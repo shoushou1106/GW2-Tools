@@ -248,7 +248,7 @@ export default function Page() {
                 variant="outline"
                 onClick={() => setStatus("idle")}
               >
-                重新提交
+                返回
               </Button>
             </div>
           )}
@@ -314,6 +314,7 @@ export default function Page() {
                   )}
                 />
                 <p className="text-sm text-muted-foreground">
+                  建议将 notify@shoushou1106.org 加入白名单，否则容易被收入垃圾邮件。<br/>
                   我使用 Resend
                   处理电子邮件。提交此表格即表示您同意您提供的个人数据将转交于
                   Resend 处理，并同意&nbsp;
@@ -344,7 +345,7 @@ export default function Page() {
                 variant="outline"
                 onClick={() => setDelStatus("idle")}
               >
-                重新提交
+                返回
               </Button>
             </div>
           )}
