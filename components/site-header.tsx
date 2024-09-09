@@ -1,46 +1,44 @@
-'use client'
+"use client"
 
-import Link from "next/link"
 import Image from "next/image"
-
-import { Skeleton } from "@/components/ui/skeleton"
+import Link from "next/link"
 import { toast } from "sonner"
+
 import { siteConfig } from "@/config/site"
-import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
-import { MainNav } from "@/components/main-nav"
-import { MobileNav } from "@/components/mobile-nav"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { Button } from "@/components/ui/button"
-import { AspectRatio } from "@/components/ui/aspect-ratio"
-import { Label } from "@/components/ui/label"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Button, buttonVariants } from "@/components/ui/button"
+import { Label } from "@/components/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { Skeleton } from "@/components/ui/skeleton"
+import { Icons } from "@/components/icons"
+import { MainNav } from "@/components/main-nav"
+import { MobileNav } from "@/components/mobile-nav"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center">
+    <header className="sticky top-0 z-50 w-full backdrop-blur border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex items-center max-w-screen-2xl h-14">
         <MainNav items={siteConfig.mainNav} />
         <MobileNav items={siteConfig.mainNav} />
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <div className="w-full flex-1 md:w-auto md:flex-none">
-          </div>
+        <div className="flex flex-1 justify-between md:justify-end items-center space-x-2">
+          <div className="flex-1 md:flex-none w-full md:w-auto"></div>
           <nav className="flex items-center">
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <div>
-                    <Icons.qq className="h-8 w-8 fill-current"/>
+                    <Icons.qq className="w-8 h-8 fill-current" />
                     <span className="sr-only">QQ</span>
                   </div>
                 </Button>
@@ -50,7 +48,8 @@ export function SiteHeader() {
                   <div className="space-y-2">
                     <h4 className="font-medium leading-none">QQ 群</h4>
                     <p className="text-sm text-muted-foreground">
-                      准备弃用，不建议加入<br/>
+                      准备弃用，不建议加入
+                      <br />
                       点击二维码可查看原图
                     </p>
                   </div>
@@ -61,13 +60,13 @@ export function SiteHeader() {
                         <AccordionContent>
                           <div className="grid gap-2">
                             <Label>群号：796783086</Label>
-                            <Button variant="outline"
-                              onClick={() =>
-                                {
-                                  navigator.clipboard.writeText("796783086")
-                                  toast("已复制群号")
-                                }
-                              }>
+                            <Button
+                              variant="outline"
+                              onClick={() => {
+                                navigator.clipboard.writeText("796783086")
+                                toast("已复制群号")
+                              }}
+                            >
                               复制群号
                             </Button>
                             <Link
@@ -75,8 +74,13 @@ export function SiteHeader() {
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Skeleton className="rounded-lg object-cover h-full w-full" />
-                                <Image src="/zhcn/static/contract/qq/社区版1群_二维码.jpg.webp" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
+                                <Skeleton className="object-cover w-full h-full rounded-lg" />
+                                <Image
+                                  src="/zhcn/static/contract/qq/社区版1群_二维码.jpg.webp"
+                                  fill
+                                  alt="加载失败，请尝试直接点击此处"
+                                  className="object-cover rounded-lg"
+                                />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -87,13 +91,13 @@ export function SiteHeader() {
                         <AccordionContent>
                           <div className="grid gap-2">
                             <Label>群号：577513205</Label>
-                            <Button variant="outline"
-                              onClick={() =>
-                                {
-                                  navigator.clipboard.writeText("577513205")
-                                  toast("已复制群号")
-                                }
-                              }>
+                            <Button
+                              variant="outline"
+                              onClick={() => {
+                                navigator.clipboard.writeText("577513205")
+                                toast("已复制群号")
+                              }}
+                            >
                               复制群号
                             </Button>
                             <Link
@@ -101,8 +105,13 @@ export function SiteHeader() {
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Skeleton className="rounded-lg object-cover h-full w-full" />
-                                <Image src="/zhcn/static/contract/qq/社区版2群_二维码.jpg.webp" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
+                                <Skeleton className="object-cover w-full h-full rounded-lg" />
+                                <Image
+                                  src="/zhcn/static/contract/qq/社区版2群_二维码.jpg.webp"
+                                  fill
+                                  alt="加载失败，请尝试直接点击此处"
+                                  className="object-cover rounded-lg"
+                                />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -113,13 +122,13 @@ export function SiteHeader() {
                         <AccordionContent>
                           <div className="grid gap-2">
                             <Label>群号：940656816</Label>
-                            <Button variant="outline"
-                              onClick={() =>
-                                {
-                                  navigator.clipboard.writeText("940656816")
-                                  toast("已复制群号")
-                                }
-                              }>
+                            <Button
+                              variant="outline"
+                              onClick={() => {
+                                navigator.clipboard.writeText("940656816")
+                                toast("已复制群号")
+                              }}
+                            >
                               复制群号
                             </Button>
                             <Link
@@ -127,8 +136,13 @@ export function SiteHeader() {
                               target="_blank"
                             >
                               <AspectRatio ratio={3 / 4.5}>
-                                <Skeleton className="rounded-lg object-cover h-full w-full" />
-                                <Image src="/zhcn/static/contract/qq/社区版3群_二维码.jpg.webp" fill alt="加载失败，请尝试直接点击此处" className="rounded-lg object-cover" />
+                                <Skeleton className="object-cover w-full h-full rounded-lg" />
+                                <Image
+                                  src="/zhcn/static/contract/qq/社区版3群_二维码.jpg.webp"
+                                  fill
+                                  alt="加载失败，请尝试直接点击此处"
+                                  className="object-cover rounded-lg"
+                                />
                               </AspectRatio>
                             </Link>
                           </div>
@@ -150,7 +164,7 @@ export function SiteHeader() {
                   variant: "ghost",
                 })}
               >
-                <Icons.nexusmods className="h-5 w-5"/>
+                <Icons.nexusmods className="w-5 h-5" />
                 <span className="sr-only">Nexus mods</span>
               </div>
             </Link>
@@ -165,7 +179,7 @@ export function SiteHeader() {
                   variant: "ghost",
                 })}
               >
-                <Icons.github className="h-5 w-5 fill-current"/>
+                <Icons.github className="w-5 h-5 fill-current" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>

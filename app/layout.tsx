@@ -1,14 +1,14 @@
 import "@/styles/globals.css"
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata, ResolvingMetadata } from "next"
 
 import { siteConfig } from "@/config/site"
-import { fontSans, fontSansCn, fontMono } from "@/lib/fonts"
+import { fontMono, fontSans, fontSansCn } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import { SiteHeader } from "@/components/site-header"
+import { Toaster } from "@/components/ui/sonner"
 import { SiteFooter } from "@/components/site-footer"
+import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
-import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: {
@@ -127,7 +127,7 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://gw2.shoushou1106.org/zhcn"),
   manifest: `${siteConfig.url}/site.webmanifest`,
-};
+}
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -136,21 +136,26 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="zh" >
+      <html lang="zh">
         <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
-            fontSans.variable, fontSansCn.variable, fontMono.variable
+            "min-h-screen font-sans antialiased bg-background",
+            fontSans.variable,
+            fontSansCn.variable,
+            fontMono.variable
           )}
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             <div vaul-drawer-wrapper="">
-              <div className="relative flex h-screen flex-col bg-background ">
+              <div className="flex relative flex-col h-screen bg-background">
                 <SiteHeader />
-                  <div className="flex-1 m-auto">
-                    {children}
-                  </div>
+                <div className="flex-1 m-auto">{children}</div>
                 <SiteFooter />
               </div>
             </div>
@@ -160,5 +165,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
         </body>
       </html>
     </>
-  );
+  )
 }
