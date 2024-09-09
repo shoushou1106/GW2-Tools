@@ -146,9 +146,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             <div vaul-drawer-wrapper="">
-              <div className="relative flex min-h-screen flex-col bg-background">
+              <div className="relative flex h-screen flex-col bg-background ">
                 <SiteHeader />
-                  <div className="flex-1">
+                  <div className="flex-1 m-auto">
                     {children}
                   </div>
                 <SiteFooter />

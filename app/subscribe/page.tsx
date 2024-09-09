@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -29,7 +29,6 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Check, AlertCircle } from 'lucide-react'
 import { Turnstile } from '@marsidev/react-turnstile'
-import { Resend } from 'resend';
 
 const formSchema = z.object({
   email: z.string().email({
@@ -41,11 +40,19 @@ const formSchema = z.object({
   turnstileResponse: z.string().min(1, "请完成人机验证"),
 })
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY_SEND);
+const delFormSchema = z.object({
+  email: z.string().email({
+    message: "请输入有效的电子邮件地址",
+  }),
+  turnstileResponse: z.string().min(1, "请完成人机验证"),
+})
 
 export default function Page() {
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('提交时发生未知问题，请重试')
+
+  const [delStatus, setDelStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [delErrorMsg, setDelErrorMsg] = useState('提交时发生未知问题，请重试')
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -56,21 +63,31 @@ export default function Page() {
     },
   })
 
+  const delForm = useForm<z.infer<typeof delFormSchema>>({
+    resolver: zodResolver(delFormSchema),
+    defaultValues: {
+      email: "",
+      turnstileResponse: "",
+    },
+  })
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setStatus('idle')
     try {
       if (values.email && values.optIn && values.turnstileResponse) {
-        const response = await resend.contacts.create({
-          email: values.email,
-          unsubscribed: false,
-          audienceId: '25e4d7d5-549e-4c19-8dc0-18a3b29a01f6',
-        });
-        if (response.data) {
+        const response = await fetch('/zhcn/api/subscribe', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: values.email }),
+        })
+        const data = await response.json()
+        if (data.success) {
           setStatus('success')
-        }
-        else {
+        } else {
           setStatus('error')
-          setErrorMsg(response.error ? response.error.message : '提交时发生未知问题，请重试')
+          setErrorMsg(data.error || '提交时发生未知问题，请重试')
         }
       } else {
         setStatus('error')
@@ -82,10 +99,39 @@ export default function Page() {
     }
   }
 
+  async function onDelete(values: z.infer<typeof delFormSchema>) {
+    setDelStatus('idle')
+    try {
+      if (values.email && values.turnstileResponse) {
+        const response = await fetch('/zhcn/api/subscribe/delete', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: values.email }),
+        })
+        const data = await response.json()
+        if (data.success) {
+          setDelStatus('success')
+        } else {
+          setDelStatus('error')
+          setDelErrorMsg(data.error || '提交时发生未知问题，请重试')
+        }
+      } else {
+        setDelStatus('error')
+        setDelErrorMsg('请确保表单已填写完成后重试')
+      }
+    } catch (error) {
+      setDelStatus('error')
+      setDelErrorMsg('提交时发生未知问题，请重试')
+    }
+  }
+
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <div className="flex flex-col md:flex-row gap-5 p-5">
+    <Card className="w-full max-w-md mx-auto flex-1">
       <CardHeader>
-        <CardTitle>电子邮件订阅</CardTitle>
+        <CardTitle>订阅</CardTitle>
         <CardDescription>通过电子邮件订阅花园战争 1 & 2 简体中文 Mod 的更新</CardDescription>
       </CardHeader>
       <CardContent>
@@ -93,7 +139,7 @@ export default function Page() {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             { status === 'error' && (
-            <Alert variant="destructive" className="">
+            <Alert variant="destructive">
               <AlertCircle className="h-4 w-4" />
               <AlertTitle>错误</AlertTitle>
               <AlertDescription>{errorMsg}</AlertDescription>
@@ -141,10 +187,14 @@ export default function Page() {
                 <FormItem>
                   <FormControl>
                     <Turnstile
-                      siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ? process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY : '1x00000000000000000000AA'}
+                      siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ? process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY : '2x00000000000000000000AB'}
                       onSuccess={(token) => field.onChange(token)}
                       onError={() => field.onChange("")}
                       onExpire={() => field.onChange("")}
+                      className="overflow-x-auto"
+                      style={{
+                        "width": "auto"
+                      }}
                     />
                   </FormControl>
                   <FormMessage />
@@ -172,7 +222,7 @@ export default function Page() {
             <div className="flex flex-row gap-2">
               <Check className="h-8 w-8" />
               <Label className="text-2xl font-bold">
-                成功！感谢您的订阅
+                成功订阅！感谢您的支持
               </Label>
             </div>
             <Button className="w-min" variant='outline' onClick={() => setStatus('idle')}>重新提交</Button>
@@ -180,5 +230,85 @@ export default function Page() {
         )}
       </CardContent>
     </Card>
+    <Card className="w-full max-w-md mx-auto flex-1">
+      <CardHeader>
+        <CardTitle>删除订阅</CardTitle>
+        <CardDescription>取消订阅，并删除您的个人信息</CardDescription>
+      </CardHeader>
+      <CardContent>
+        { (delStatus === 'idle' || delStatus === 'error') && (
+        <Form {...delForm}>
+          <form onSubmit={delForm.handleSubmit(onDelete)} className="space-y-4">
+            { delStatus === 'error' && (
+            <Alert variant="destructive">
+              <AlertCircle className="h-4 w-4" />
+              <AlertTitle>错误</AlertTitle>
+              <AlertDescription>{delErrorMsg}</AlertDescription>
+            </Alert>
+            )}
+            <FormField
+              control={delForm.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>电子邮件地址</FormLabel>
+                  <FormControl>
+                    <Input placeholder="you@example.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={delForm.control}
+              name="turnstileResponse"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Turnstile
+                      siteKey={process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY ? process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY : '2x00000000000000000000AB'}
+                      onSuccess={(token) => field.onChange(token)}
+                      onError={() => field.onChange("")}
+                      onExpire={() => field.onChange("")}
+                      className="overflow-x-auto"
+                      style={{
+                        "width": "auto"
+                      }}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <p className="text-sm text-muted-foreground">
+              我使用 Resend 处理电子邮件。提交此表格即表示您同意您提供的个人数据将转交于 Resend 处理，并同意&nbsp;
+              <a
+                href="https://resend.com/legal/privacy-policy"
+                target="_blank"
+                rel="noreferrer"
+                className="underline underline-offset-4"
+              >
+                Resend 隐私政策
+              </a>
+              。
+            </p>
+            <Button type="submit" className="w-min" >提交</Button>
+          </form>
+        </Form>
+        )}
+        {delStatus === 'success' && (
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-row gap-2">
+              <Check className="h-8 w-8" />
+              <Label className="text-2xl font-bold">
+                成功删除！
+              </Label>
+            </div>
+            <Button className="w-min" variant='outline' onClick={() => setDelStatus('idle')}>重新提交</Button>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+    </div>
   )
 }
