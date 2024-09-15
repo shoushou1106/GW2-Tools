@@ -6,7 +6,7 @@ import Link, { LinkProps } from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 
 import { NavItem } from "@/types/nav"
-import { siteConfig } from "@/config/site"
+import { zhcnSiteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -73,7 +73,7 @@ export function MobileNav({ items }: MainNavProps) {
             height={3000}
             className="mr-2 w-6 h-6"
           />
-          <span className="font-bold">{siteConfig.name}</span>
+          <span className="font-bold">{zhcnSiteConfig.name}</span>
         </MobileLink>
         <ScrollArea className="pb-10 pl-6 my-4 h-[calc(100vh-8rem)]">
           {items?.length ? (

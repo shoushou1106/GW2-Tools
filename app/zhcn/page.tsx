@@ -1,7 +1,7 @@
 import * as React from "react"
 import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
+import { zhcnSiteConfig } from "@/config/site"
 import { Button, buttonVariants } from "@/components/ui/button"
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
       </div>
 
       <div className="flex gap-4">
-        <Link href="/download" className={buttonVariants()}>
+        <Link href="/zhcn/download" className={buttonVariants()}>
           下载
         </Link>
       </div>

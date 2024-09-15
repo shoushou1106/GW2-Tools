@@ -1,21 +1,21 @@
 import "@/styles/globals.css"
 import type { Metadata, ResolvingMetadata } from "next"
 
-import { siteConfig } from "@/config/site"
+import { zhcnSiteConfig } from "@/config/site"
 import { fontMono, fontSans, fontSansCn } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/sonner"
 import { SiteFooter } from "@/components/site-footer"
-import { SiteHeader } from "@/components/site-header"
+import { SiteHeader } from "@/components/site-header-zhcn"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    default: zhcnSiteConfig.name,
+    template: `%s - ${zhcnSiteConfig.name}`,
   },
-  description: siteConfig.description,
+  description: zhcnSiteConfig.description,
   keywords: [
     "PVZ GW2",
     "PVZGW2",
@@ -92,25 +92,25 @@ export const metadata: Metadata = {
   creator: "shoushou1106",
   openGraph: {
     type: "website",
-    locale: "zh_CN",
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
+    locale: "zh",
+    url: zhcnSiteConfig.url,
+    title: zhcnSiteConfig.name,
+    description: zhcnSiteConfig.description,
+    siteName: zhcnSiteConfig.name,
     images: [
       {
-        url: `${siteConfig.url}/ogimage.png`,
+        url: `${zhcnSiteConfig.url}/ogimage.png`,
         width: 3840,
         height: 2160,
-        alt: siteConfig.name,
+        alt: zhcnSiteConfig.name,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: `${siteConfig.url}/ogimage.png.webp`,
+    title: zhcnSiteConfig.name,
+    description: zhcnSiteConfig.description,
+    images: `${zhcnSiteConfig.url}/ogimage.png.webp`,
     creator: "@shoushou1106",
     site: "@shoushou1106",
   },
@@ -126,14 +126,14 @@ export const metadata: Metadata = {
     apple: "/zhcn/apple-touch-icon.png",
   },
   metadataBase: new URL("https://gw2.shoushou1106.org/zhcn"),
-  manifest: `${siteConfig.url}/site.webmanifest`,
+  manifest: `${zhcnSiteConfig.url}/site.webmanifest`,
 }
 
 interface RootLayoutProps {
   children: React.ReactNode
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function ZhcnLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="zh">
@@ -155,7 +155,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div vaul-drawer-wrapper="">
               <div className="flex relative flex-col h-screen bg-background">
                 <SiteHeader />
-                <div className="flex-1 m-auto">{children}</div>
+                <div className="relative flex min-h-screen flex-col bg-background">{children}</div>
                 <SiteFooter />
               </div>
             </div>

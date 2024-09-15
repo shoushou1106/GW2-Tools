@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config/site"
+import { zhcnSiteConfig } from "@/config/site"
 
 export function SiteFooter() {
   return (
@@ -7,7 +7,7 @@ export function SiteFooter() {
         <p className="text-sm leading-loose text-center md:text-left text-balance text-muted-foreground">
           由&nbsp;
           <a
-            href={siteConfig.links.bilibili}
+            href={zhcnSiteConfig.links.bilibili}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
