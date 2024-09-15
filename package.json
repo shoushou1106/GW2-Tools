@@ -31,7 +31,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.2.1",
     "cmdk": "^1.0.0",
-    "lucide-react": "0.438.0",
+    "lucide-react": "0.439.0",
     "next": "^14.2.6",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
@@ -40,12 +40,12 @@
     "resend": "^4.0.0",
     "sharp": "^0.33.5",
     "sonner": "^1.5.0",
-    "tailwind-merge": "^1.13.2",
+    "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.6",
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
     "@types/node": "^22.5.0",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.2.6",
@@ -55,10 +55,10 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-tailwindcss": "^1.4.1",
-    "hint": "^2.0.0",
+    "hint": "^7.1.13",
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "tailwindcss": "^3.3.2",
-    "typescript": "^4.9.5"
+    "typescript": "^5.6.2"
   }
 }
