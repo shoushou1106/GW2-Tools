@@ -13,8 +13,8 @@ export default function Home() {
         </h1>
       </div>
       <div>
-        <p className="[&:not(:first-child)]:mt-6 leading-7">
-          This is just a thing in my mind, and I haven't started making it yet.<br/>
+        <p className="leading-7">
+          This is just a thing in my mind, and I haven&#39;t started making it yet.<br/>
           如果您在寻找 GW2 简体中文 Mod，请点击下面的按钮。
         </p>
       </div>

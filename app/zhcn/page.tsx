@@ -13,7 +13,7 @@ export default function Home() {
         </h1>
       </div>
       <div>
-        <p className="[&:not(:first-child)]:mt-6 leading-7">
+        <p className="leading-7">
           此网页和 Mod 正处于前期测试，如需下载请看右上角加入QQ群，网站没做完。
         </p>
       </div>
