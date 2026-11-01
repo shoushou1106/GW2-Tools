@@ -1,6 +1,9 @@
 import "@/styles/globals.css"
 import type { Metadata, ResolvingMetadata } from "next"
 
+import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages } from 'next-intl/server';
+
 import { zhcnSiteConfig } from "@/config/site"
 import { fontMono, fontSans, fontSansCn } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
@@ -133,17 +136,20 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-export default function ZhcnLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
     <>
-      <html lang="zh">
+      <html lang="zh-Hans-CN">
         <head />
         <body
           className={cn(
             "min-h-screen font-sans antialiased bg-background",
             fontSans.variable,
+            fontMono.variable,
             fontSansCn.variable,
-            fontMono.variable
           )}
         >
           <ThemeProvider
@@ -152,15 +158,17 @@ export default function ZhcnLayout({ children }: RootLayoutProps) {
             enableSystem
             disableTransitionOnChange
           >
-            <div vaul-drawer-wrapper="">
-              <div className="flex relative flex-col h-screen bg-background">
-                <SiteHeader />
-                <div className="relative flex min-h-screen flex-col bg-background">{children}</div>
-                <SiteFooter />
+            <NextIntlClientProvider messages={messages}>
+              <div vaul-drawer-wrapper="">
+                <div className="flex relative flex-col h-screen bg-background">
+                  <SiteHeader />
+                  <div className="relative flex min-h-screen flex-col bg-background">{children}</div>
+                  <SiteFooter />
+                </div>
               </div>
-            </div>
-            <Toaster />
-            <TailwindIndicator />
+              <Toaster />
+              <TailwindIndicator />
+            </NextIntlClientProvider>
           </ThemeProvider>
         </body>
       </html>

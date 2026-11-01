@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const formSchema = z.object({
   email: z.string().email({
@@ -131,8 +132,13 @@ export default function Page() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-5 p-5">
-      <Card className="flex-1 mx-auto w-full max-w-md">
+      <Tabs defaultValue="subscribe" className="max-w-[450px] self-center">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="subscribe">订阅</TabsTrigger>
+          <TabsTrigger value="delete">删除订阅</TabsTrigger>
+        </TabsList>
+        <TabsContent value="subscribe">
+        <Card className="flex-1 mx-auto w-full max-w-md">
         <CardHeader>
           <CardTitle>订阅</CardTitle>
           <CardDescription>
@@ -259,7 +265,9 @@ export default function Page() {
           )}
         </CardContent>
       </Card>
-      <Card className="flex-1 mx-auto w-full max-w-md">
+        </TabsContent>
+        <TabsContent value="delete">
+        <Card className="flex-1 mx-auto w-full max-w-md">
         <CardHeader>
           <CardTitle>删除订阅</CardTitle>
           <CardDescription>取消订阅，并删除您的个人信息</CardDescription>
@@ -355,6 +363,7 @@ export default function Page() {
           )}
         </CardContent>
       </Card>
-    </div>
+        </TabsContent>
+      </Tabs>
   )
 }

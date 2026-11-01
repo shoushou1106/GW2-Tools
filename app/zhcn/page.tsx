@@ -2,6 +2,7 @@ import * as React from "react"
 import Link from "next/link"
 
 import { zhcnSiteConfig } from "@/config/site"
+
 import { Button, buttonVariants } from "@/components/ui/button"
 
 export default function Home() {
